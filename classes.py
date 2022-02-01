@@ -4,19 +4,24 @@ class User:
         self.phone = phone
         self.address = address
         self.birthday = birthday
+
     def show(self):
         print(f'Имя: {self.name}, '
               f'адрес: {self.address}, '
               f'телефон: {self.phone}, '
               f'день рождения: {self.birthday}')
+
     def __str__(self):
         return f'Пользователь: {self.name}'
+
 class Employee(User):
     def __init__(self, name, phone, address, birthday, employ_date):
         super().__init__(name, phone, address, birthday)
         self.employ_date = employ_date
+
     def show(self):
         print(f'Имя: {self.name} || дата трудоустройства: {self.employ_date}')
+
 class Slave(User):
     def show(self):
         print(f'{self.name} работает за бесплатно')
@@ -25,8 +30,8 @@ class Slave(User):
 def print_user_data(user):
     print(f"{user.name} - адрес: {user.address}, телефон: {user.phone}, день рождения: {user.birthday} ")
 
-max = User(name = 'Макс',
-            phone = '+79854564411',
+max = User(name='Макс',
+            phone='+79854564411',
             address = 'Обнинск',
             birthday = '09.11.1980')
 gregory = User(name = 'Грегориан',

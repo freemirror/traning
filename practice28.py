@@ -1,3 +1,6 @@
-L = [1,2,3,4,5,6]
-for i in range(0,6):
-    print(i)
+import random
+num = 0
+for count in range(0, 7):
+    num = random.randint(10, 99)
+    print(num)
+print(random.randint(99, 999))

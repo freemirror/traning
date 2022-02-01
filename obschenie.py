@@ -13,6 +13,7 @@ class Student(Human):
         someone.answer_question(question)
         print()
 
+
 class Curator(Human):
     def answer_question(self, question):
         if question == 'мне грустненько, что делать?':
