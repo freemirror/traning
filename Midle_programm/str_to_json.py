@@ -1,6 +1,5 @@
 import json
 import re
-from xml.dom.minidom import Element
 
 
 def table_title(title_string):

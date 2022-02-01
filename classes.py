@@ -30,23 +30,24 @@ class Slave(User):
 def print_user_data(user):
     print(f"{user.name} - адрес: {user.address}, телефон: {user.phone}, день рождения: {user.birthday} ")
 
+
 max = User(name='Макс',
-            phone='+79854564411',
-            address = 'Обнинск',
-            birthday = '09.11.1980')
-gregory = User(name = 'Грегориан',
-            phone = '+79814445566',
-            address = 'Балашиха',
-            birthday = '07.08.1992')
-trevor = Employee(name ='Тревор',
-          phone = '+75554122188',
-          birthday = '04.01.2000',
-          address = 'Смоленск',
-          employ_date = '25.08.2021')
-spartak = Slave(name ='Спартак',
-          phone = '+5',
-          birthday = '06.10.0015',
-          address = 'Рим')
+           phone='+79854564411',
+           address='Обнинск',
+           birthday='09.11.1980')
+gregory = User(name='Грегориан',
+               phone='+79814445566',
+               address='Балашиха',
+               birthday='07.08.1992')
+trevor = Employee(name='Тревор',
+                  phone='+75554122188',
+                  birthday='04.01.2000',
+                  address='Смоленск',
+                  employ_date='25.08.2021')
+spartak = Slave(name='Спартак',
+                phone='+5',
+                birthday='06.10.0015',
+                address='Рим')
 max.show()
 gregory.show()
 print(max.phone)
