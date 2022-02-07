@@ -40,12 +40,14 @@ class CodeReviewer(Human):
             super().answer_question(question)
 
 
+human = Human ('Вован')
 student1 = Student('Тимофей')
 curator = Curator('Марина')
 mentor = Mentor('Ира')
 reviewer = CodeReviewer('Евгений')
 friend = Human('Виталя')
 
+student1.ask_question(human, 'мне грустненько, что делать?')
 student1.ask_question(curator, 'мне грустненько, что делать?')
 student1.ask_question(mentor, 'мне грустненько, что делать?')
 student1.ask_question(reviewer, 'когда каникулы?')

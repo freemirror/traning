@@ -1,3 +1,3 @@
 def burger():
     print('bigmak')
-burger('bug')
+burger()
