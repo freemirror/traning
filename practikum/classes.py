@@ -1,4 +1,5 @@
 class User:
+    COMPANY = 'Goodjob'
     def __init__(self, name, phone, address, birthday):
         self.name = name
         self.phone = phone
@@ -61,3 +62,4 @@ print('\n Опять методы классов\n')
 print(max)
 trevor.show()
 spartak.show()
+print(max.__dict__, max.COMPANY)
