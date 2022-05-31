@@ -1,19 +1,46 @@
-from typing import Callable
+def cache3(func):
+    count = {}
+    cache = func()
+    count[func] = 0
+    def wrapper():
+        if count[func] == 0:
+            count[func] += 1
+            return cache
 
-def add(number: float, callback: Callable[[float], float]) -> float:
-    """Производит арифметические действия с числами.
-    Принимает число и функцию, выполняющую арифметическое действие.
-    """    
-    return callback(number)
+        elif count[func] < 3:
+            count[func] += 1
+            return cache
+        else:
+            count[func] = 1
+            return func()
+
+    return wrapper
 
 
-def adder20(number: float) -> float:
-    """Добавляет к аргументу 20."""
-    return number + 20
+@cache3
+def heavy():
+    print('Сложные вычисления')
+    return 1
 
 
-def multiplier2(number: float) -> float:
-    """Умножает аргумент на 2."""
-    return number * 2
+print(heavy())
+# Сложные вычисления
+# 1
+print(heavy())
+# 1
+print(heavy())
+# 1
 
-print(add(50, adder20))
+# Опять кеш устарел, надо вычислять заново
+print(heavy())
+# Сложные вычисления
+# 1
+print(heavy())
+print(heavy())
+print(heavy())
+print(heavy())
+print(heavy())
+print(heavy())
+print(heavy())
+print(heavy())
+print(heavy())

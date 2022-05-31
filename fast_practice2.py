@@ -1,19 +1,45 @@
-class Run:
-    def __init__(self, numb,numb_2):
-        self.numb = numb
-        self.numb_2 = numb_2
-    def summ(self):
-        summa = self.numb + self.numb_2
-        return summa
-
-class Run2(Run):
-    def print_summ(self):
-        summako = self.summ()
-        return print(summako)
+import time
+from functools import wraps
 
 
-first = Run(numb=23,
-            numb_2=5435)
-second = Run2(numb=653,
-              numb_2=46535)
-second.print_summ()
+def time_check(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        execution_time = round(time.time() - start_time, 1)
+        print(f'Время выполнения функции {func.__name__}: {execution_time} с.')
+        return result
+
+    return wrapper
+
+
+def cache_args(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return result        
+    return wrapper
+
+@time_check
+@cache_args
+def long_heavy(num):
+    time.sleep(1)
+    return num * 2
+
+
+print(long_heavy(1))
+# Время выполнения функции long_heavy: 1.0 с.
+# 2
+print(long_heavy(1))
+# Время выполнения функции long_heavy: 0.0 с.
+# 2
+print(long_heavy(2))
+# Время выполнения функции long_heavy: 1.0 с.
+# 4
+print(long_heavy(2))
+# Время выполнения функции long_heavy: 0.0 с.
+# 4
+print(long_heavy(2))
+# Время выполнения функции long_heavy: 0.0 с.
+# 4

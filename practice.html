@@ -1,0 +1,12 @@
+    {% for char in text %}
+      {% if forloop.first %}
+        <p>Начало цикла</p>
+      {% endif %}
+      <p>{{ char }}</p>
+      {# forloop хранит счётчик цикла и может определять разные состояния счётчика #}
+      {% if forloop.last %}
+        <p>Конец цикла</p>
+      {% endif %}
+    {% empty %}
+      <p>Если цикл пуст</p>
+    {% endfor %}
